@@ -1,0 +1,18 @@
+<div class="modals">
+	<div class="modal in fade switch" ng-repeat="modal in modals.all">
+		<div class="modal-header">
+			<button type="button" class="close" ng-click="modals.pop()"
+				aria-hidden="true">&times;</button>
+			<h3>{{modal.type|inflector:humanize}}</h3>
+		</div>
+		<div class="modal-body">
+			<form class="form-horizontal">
+				<div form-for="modal.object" type="modal.type"></div>
+			</form>
+		</div>
+
+		<div class="modal-footer">
+			<button class="btn" ng-click="modal.done()">Done</button>
+		</div>
+	</div>
+</div>

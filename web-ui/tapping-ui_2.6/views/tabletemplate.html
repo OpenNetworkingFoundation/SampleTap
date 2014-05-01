@@ -1,0 +1,19 @@
+<h3>
+	{{heading}}
+	<a ng-click="modals.new(type)">+</a>
+</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th ng-repeat="column in columns">{{column}}</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tr ng-repeat="object in tableData" >
+    <td ng-repeat="column in columns">{{object[column] | format}}</td>
+    <td><button ng-click="modals.edit(type, object)" class="btn btn-mini">edit</button></td>
+    <td><button ng-click="backend.remove(type, object)" class="btn btn-danger btn-mini">x</button></td>
+  </tr>
+</table>
+

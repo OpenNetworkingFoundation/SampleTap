@@ -1,0 +1,30 @@
+<ng-include src="'views/modals.html'"></ng-include>
+
+
+<div id="left">
+	<div id="left-top">
+		<leftpane/>
+	</div>
+</div>
+
+<div id="right">
+
+	<div id="right-top">
+		<div class="dash">
+			<div class="visual-switches">
+				<visualswitch switch="switch" ng-repeat="switch in backend.opfSwitch.all"></visualswitch>
+			</div>
+		</div>
+	</div>
+	
+		<div id="right-bottom">
+		<div class="dash">
+			<div logs=""></div>
+		</div>
+
+	</div>
+	
+</div>
+
+
+

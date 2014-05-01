@@ -1,0 +1,26 @@
+<div class="nav nav-tabs">
+	<li ng-class="{'active': showTab('logs')}"><a ng-click="setTab('logs')">Logs</a></li>
+	<li ng-class="{'active': showTab('statistics')}"><a ng-click="setTab('statistics')">Statistics</a></li>
+</div>
+<div ng-switch="backend.bottomTab">
+	<div class="dashlet" id="logs-pane" ng-switch-when="logs">
+		<div ng-repeat="log in backend.logs.all">
+			{{log.timestamp.toLocaleString()}} {{log.fileName}}:{{log.lineNumber}} - {{log.message}}
+		</div>
+	</div>
+	<div class="dashlet" ng-switch-when="statistics">
+    <div ng-repeat="switch in backend.opfSwitch.all">
+      <h4>{{switch.description}}</h4>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th ng-repeat="column in columns(switch)">{{column}}</th>
+          </tr>
+        </thead>
+        <tr ng-repeat="row in switch.switchPortStatistics">
+          <td ng-repeat="column in columns(switch)">{{row[column]}}</td>
+        </tr>
+      </table>
+    </div>
+	</div>
+</div>

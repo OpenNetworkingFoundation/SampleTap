@@ -1,0 +1,41 @@
+<ng-include src="'views/modals.html'"></ng-include>
+
+<ul class="nav nav-tabs">
+	<li ng-class="{'active': showTab('info')}"><a ng-click="setTab('info')"> Tap Policy </a></li>
+	<li ng-class="{'active': showTab('matchrules')}"><a ng-click="setTab('matchrules')"> Match Rules </a></li>
+	<li ng-class="{'active': showTab('switchentries')}"><a ng-click="setTab('switchentries')"> Switch Entries </a></li>
+	<li ng-class="{'active': showTab('capturedevices')}"><a ng-click="setTab('capturedevices')"> Capture Devices </a></li>
+	<li ng-class="{'active': showTab('portchains')}"><a ng-click="setTab('portchains')"> Port Chains </a></li>
+</ul>
+
+<div class="container" ng-switch="currentTab">
+ 	<div ng-switch-when="info">
+  		<h3>Tap Policy Info</h3>
+  		<div form-for="policy" type="'tapPolicy'"></div>
+  		<hr>
+  		<button class="btn" ng-click="done()">Done</button>
+  		<a ng-click="cancel()">Cancel</a>
+ 	</div>
+	<div ng-switch-when="matchrules">
+		<h3>Matching Criteria</h3>
+		<div type="matchCriteria" table-data="backend.matchCriteria.all"
+			columns="['name', 'priority', 'reflexive']"></div>
+	</div>
+	<div ng-switch-when="switchentries">
+		<h3>Switch Entries</h3>
+		<div type="switchEntry" table-data="backend.switchEntry.all"
+			columns="['name', 'tappingMode', 'opfSwitch']"></div>
+	</div>
+	<div ng-switch-when="capturedevices">
+		<h3>Capture Devices</h3>
+		<div type="captureDevice" table-data="backend.captureDevice.all"
+			columns="['name', 'captureType', 'switchPort']"></div>
+	</div>
+	<div ng-switch-when="portchains">
+		<h3>Port Chains</h3>
+		<div type="portChain" table-data="backend.portChain.all"
+			columns="['name', 'type']"></div>
+	</div>
+
+</div>
+ 

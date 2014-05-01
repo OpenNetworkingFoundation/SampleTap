@@ -1,0 +1,130 @@
+<div class="control-group" ng-repeat="field in types.fields[type]">
+
+	<div ng-switch="field[1]">
+
+		<!--  embed many -->
+
+		<div ng-switch-when="embedded">
+
+			<h5>{{field[0]|inflector:humanize}}<h5>
+			<hr>	
+			<div ng-repeat="o in object[field[0]]">
+				<div form-for="o" type="field[2]"></div>
+				<div class="controls">
+					<a ng-click="object[field[0]].splice($index, 1)">Delete</a>
+				</div>
+				<hr>
+			</div>
+			<div class="controls">
+			<button
+				ng-click="object[field[0]].push(types.new(field[2]))">
+				Add {{field[2]|inflector:humanize}} field</button>
+			</div>
+			
+
+		</div>
+		
+		<!--  embed one -->
+		
+		<div ng-switch-when="embedOne">
+			<h5>{{field[0]|inflector:humanize}}</h5>
+			<div form-for="object[field[0]]" type="field[2]"></div>
+		</div>
+		
+
+		<!--  string input -->
+
+		<div ng-switch-when="string">
+
+			<label class="control-label" for="field">{{field[0]|inflector:humanize}}</label>
+			<div class="controls">
+				<input type="text" id="{{field[0]}}"
+					   placeholder="{{field[0]}}" ng-model="object[field[0]]">
+			</div>
+
+		</div>
+
+		<!--  boolean input -->
+
+		<div ng-switch-when="boolean">
+			<label class="control-label" for="field">{{field[0]|inflector:humanize}}</label>
+			<div class="controls">
+				<input type="checkbox" ng-model="object[field[0]]">
+			</div>
+		</div>
+
+		<!--  select from list -->
+
+				<div ng-switch-when="select">
+			<label class="control-label" for="field">{{field[0]|inflector:humanize}}</label>
+			<div class="controls">
+
+				<select ng-model="object[field[0]]"
+					ng-options="(obj.name || obj.switchName || obj) for obj in field[2]()"></select>
+
+			</div>
+		</div>
+
+		<!--  select many objects from list -->
+		
+		<div ng-switch-when="selectManyObjects">
+			<label class="control-label" for="field">{{field[0]|inflector:humanize}}</label>
+			<div class="controls">
+				<div ng-repeat="id in object[field[0]] track by $index">
+					<select ng-model="object[field[0]][$index]"
+						ng-options="backend.lookup(field[2], id).name for id in backend[field[2]].ids()"></select>
+					<a ng-click="object[field[0]].splice($index, 1)">Delete</a>
+					<br>
+				</div>
+				<button ng-click="object[field[0]].push(null)">
+					Add {{field[2]|inflector:humanize}} field</button>
+
+
+			</div>
+		</div>
+
+
+		<!--  select object from list -->
+
+		<div ng-switch-when="selectObject">
+			<label class="control-label" for="field">{{field[0]|inflector:humanize}}</label>
+			<div class="controls">
+
+				<select ng-model="object[field[0]]"
+					    ng-options="backend.lookup(field[2], id).name for id in backend[field[2]].ids()"></select>
+
+			</div>
+		</div>
+			
+		<!--  select OPFSwitch from list -->
+		
+		<div ng-switch-when="selectOPFSwitch">
+			{{object}}
+			<label class="control-label" for="field">{{field[0]|inflector:humanize}}</label>
+			<div class="controls">
+
+				<select ng-model="object[field[0]]"
+					    ng-options="dataPathDesc for dataPathDesc in backend[field[2]].dataPathDescs()"
+					    ng-init="object[field[0]] = object[field[0]].dataPathDesc"></select>
+
+			</div>
+		</div>
+			
+		<!--  select many from list  -->
+		
+		<div ng-switch-when="selectMany">
+			<label class="control-label" for="field">{{field[0]|inflector:humanize}}</label>
+			<div class="controls">
+
+				<select ng-repeat="id in object[field[0]] track by $index"
+						ng-model="object[field[0]][$index]"
+						ng-options="(obj.objectId || obj) as (obj.name || obj) for obj in field[2]()"></select><br>
+				<button ng-click="object[field[0]].push(null)">
+					Add {{field[2]|inflector:humanize}} field</button>
+
+
+			</div>
+		</div>
+		
+	</div>
+</div>

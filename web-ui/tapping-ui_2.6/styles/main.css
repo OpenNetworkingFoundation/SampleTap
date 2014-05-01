@@ -1,0 +1,149 @@
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+.modal .modal-body {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+/* visual switches */
+
+.visual-switches table {
+	background: #BBB;
+	table-layout: fixed;
+}
+
+.visual-switches {
+	margin: 1%;
+	width: 98%;
+}
+
+.visual-switches td {
+  padding: 3px;
+  width: 4.17%;
+}
+
+.port {
+  background: #555;
+  -moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
+  height: 3em;
+  width: 100%;
+  color: white;
+  font-size: .8em;
+  position: relative;
+  text-align: center;
+}
+
+.port .number {
+	display: inline-block;
+	width: 100%;
+}
+
+.port .light {
+	display: inline-block;
+	position: relative;
+	top: -0.5em;
+	height: 0.75em;
+	width: 0.75em;
+}
+
+.port .on {
+	background: rgb(91,181,97);
+}
+
+.port .off {
+	background: rgb(218,78,75);
+}
+
+.table-data {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #ddd;
+	border-radius: 4px 4px 0 0;
+	
+	margin-left: 1em;
+	margin-right: 1em;
+	margin-top: 1em;
+	margin-bottom: 2em;
+	
+	padding-left: 1em;
+}

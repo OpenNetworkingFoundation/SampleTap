@@ -1,0 +1,28 @@
+<div class="dash">
+	<div class="nav nav-tabs">
+		<li ng-class="{'active': showTab('tappingObjects')}"><a ng-click="setTab('tappingObjects')">Tapping Objects</a></li>
+		<li ng-class="{'active': showTab('opfSwitches')}"><a ng-click="setTab('opfSwitches')">OPF Switches</a></li>
+	</div>
+	<div class="container" ng-switch="currentTab">
+		<div class="dashlet" id="logs-pane" ng-switch-when="tappingObjects">
+			<div class="table-data" type="tapPolicy" table-data="backend.tapPolicy.all"
+				columns="['name', 'enabled']" heading="Tap Policies"></div>
+				
+			<div class="table-data" type="matchCriteria" table-data="backend.matchCriteria.all"
+				columns="['name', 'priority', 'reflexive']" heading="Matching Criteria"></div>
+				
+			<div class="table-data" type="switchEntry" table-data="backend.switchEntry.all"
+				columns="['name']" heading="Switch Entries"></div>
+				
+			<div class="table-data" type="captureDevice" table-data="backend.captureDevice.all"
+				columns="['name', 'captureType', 'switchPort']" heading="Capture Devices"></div>
+				
+			<div class="table-data" type="portChain" table-data="backend.portChain.all"
+				columns="['name', 'type']" heading="Port Chains"></div>
+	</div>
+		<div class="dashlet" id="logs-pane" ng-switch-when="opfSwitches">
+			<div class="table-data" type="opfSwitch" switches-table="backend.opfSwitch.all"
+				columns="['description', 'ipAddressDesc', 'DataPathDesc']"></div>
+		</div>
+	</div>
+</div>

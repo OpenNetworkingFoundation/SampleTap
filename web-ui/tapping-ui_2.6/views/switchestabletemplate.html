@@ -1,0 +1,13 @@
+<h3>OPF Switches</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th ng-repeat="column in columns">{{column|inflector:humanize}}</th>
+      <th>View</th>
+    </tr>
+  </thead>
+  <tr ng-repeat="object in switchesTable" >
+    <td ng-repeat="column in columns">{{object[column] | format}}</td>
+	<td><button ng-click="modals.view(type, object)" class="btn btn-mini">view</button></td>
+  </tr>
+</table>
