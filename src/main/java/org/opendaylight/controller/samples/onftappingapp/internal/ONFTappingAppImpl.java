@@ -2,8 +2,8 @@
 
 Copyright ©2014 Open Networking Foundation
 
-This ONF SampleTap software is licensed under the Apache License, 
-Version 2.0 (the "License"); you may not use this file except in 
+This ONF SampleTap software is licensed under the Apache License,
+Version 2.0 (the "License"); you may not use this file except in
 compliance with the License. You may obtain a copy of the original
 license at http://www.apache.org/licenses/LICENSE-2.0 and also in
 the main directory of the source distribution.
@@ -45,6 +45,7 @@ import org.opendaylight.controller.switchmanager.SwitchConfig;
 import org.opendaylight.controller.samples.onftappingapp.DBAuthenticationException;
 import org.opendaylight.controller.samples.onftappingapp.DatabaseConnectException;
 import org.opendaylight.controller.samples.onftappingapp.TappingApp;
+import org.opendaylight.controller.samples.onftappingapp.Router;
 
 /**
  * This class implements port tapping for hosts connected to the managed devices.
