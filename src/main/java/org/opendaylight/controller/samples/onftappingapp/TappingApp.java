@@ -2,8 +2,8 @@
 
 Copyright ©2014 Open Networking Foundation
 
-This ONF SampleTap software is licensed under the Apache License, 
-Version 2.0 (the "License"); you may not use this file except in 
+This ONF SampleTap software is licensed under the Apache License,
+Version 2.0 (the "License"); you may not use this file except in
 compliance with the License. You may obtain a copy of the original
 license at http://www.apache.org/licenses/LICENSE-2.0 and also in
 the main directory of the source distribution.
@@ -122,7 +122,7 @@ public class TappingApp {
             try {
                     loadConfigurationFromFile();
             } catch (IOException e) {
-                    logger.error(fatal, "Unable to load ONS Tapping Application configuration file");
+                    logger.error(fatal, "Unable to load ONF Tapping Application configuration file");
                     logger.debug("Exception:", e);
                     return;
             }
@@ -158,7 +158,7 @@ public class TappingApp {
             try {
                 saveConfigurationToFile();
             } catch (IOException e) {
-                logger.error("Unable to save ONS Tapping Application configuration file");
+                logger.error("Unable to save ONF Tapping Application configuration file");
                 logger.debug("Exception:", e);
             }
         }
@@ -204,7 +204,7 @@ public class TappingApp {
 
         private void loadConfigurationFromFile() throws IOException {
             // now load properties from last invocation
-            FileInputStream in  = new FileInputStream("ONSTappingApp.config");
+            FileInputStream in  = new FileInputStream("ONFTappingApp.config");
             applicationProps.load(in);
             in.close();
 
@@ -221,7 +221,7 @@ public class TappingApp {
 
         // Store the application properties to the configuration file
         private static void saveConfigurationToFile() throws IOException {
-            FileOutputStream out = new FileOutputStream("ONSTappingApp.config");
+            FileOutputStream out = new FileOutputStream("ONFTappingApp.config");
 
             Properties properties = new Properties();
             properties.setProperty("MongoDBUsername", mongoDBUsername);
@@ -230,7 +230,7 @@ public class TappingApp {
             String mongoPort = Integer.toString(TappingApp.getMongoDBPort());
             properties.setProperty("MongoDBPort", mongoPort);
 
-            properties.store(out, "Settings for the ONS Tapping Application");
+            properties.store(out, "Settings for the ONF Tapping Application");
             out.close();
         }
 
