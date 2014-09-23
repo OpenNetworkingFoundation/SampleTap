@@ -5,7 +5,7 @@
     <groupId>org.opendaylight.controller</groupId>
     <artifactId>commons.opendaylight</artifactId>
     <version>1.4.2-SNAPSHOT</version>
-    <relativePath>../controller/opendaylight/commons/opendaylight</relativePath>
+    <relativePath>../../commons/opendaylight</relativePath>
   </parent>
   <scm>
     <connection>scm:git:ssh://git.opendaylight.org:29418/controller.git</connection>
