@@ -45,6 +45,7 @@ import org.opendaylight.controller.switchmanager.SwitchConfig;
 import org.opendaylight.controller.samples.onftappingapp.DBAuthenticationException;
 import org.opendaylight.controller.samples.onftappingapp.DatabaseConnectException;
 import org.opendaylight.controller.samples.onftappingapp.TappingApp;
+import org.opendaylight.controller.samples.onftappingapp.Router;
 
 /**
  * This class implements port tapping for hosts connected to the managed devices.
